@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1728, initial-scale=1.0">
+    <title>Prashanto Roy - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'EB Garamond', serif;
+            background: white;
+            color: black;
+            overflow: hidden;
+        }
+
+        /* Main Container - Exact Dimensions */
+        .container {
+            width: 1728px;
+            height: 1117px;
+            position: relative;
+            background: white;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        /* Browser Header Bar */
+        .browser-header {
+            width: 1728px;
+            height: 79px;
+            position: absolute;
+            left: 0;
+            top: -3px;
+            background: white;
+            border-bottom: 1px solid #EEEEEE;
+        }
+
+        /* Logo - Exact Position */
+        .logo {
+            width: 94px;
+            height: 96px;
+            position: absolute;
+            left: 82px;
+            top: 99px;
+            background: #ACACAC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        /* Navigation - Exact Positions */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            position: absolute;
+            top: 156px;
+        }
+
+        .nav-link {
+            width: 108px;
+            height: 27px;
+            background: white;
+            text-align: center;
+            font-size: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Individual Nav Positions */
+        .nav-link.about {
+            position: absolute;
+            left: 1252px;
+        }
+
+        .nav-link.works {
+            position: absolute;
+            left: 1406px;
+        }
+
+        .nav-link.connect {
+            position: absolute;
+            left: 1549px;
+            width: 109px;
+        }
+
+        .nav-link.active {
+            color: #FF2F2F;
+        }
+
+        /* Content Boxes - Exact Positions and Sizes */
+
+        /* Intro Section */
+        .intro-section {
+            width: 589px;
+            height: 472px;
+            position: absolute;
+            left: 82px;
+            top: 217px;
+            background: #EEEEEE;
+        }
+
+        /* Prashanto Roy Text */
+        .intro-section h1 {
+            width: 274px;
+            height: 45px;
+            position: absolute;
+            left: 21px;
+            top: 16px;
+            font-size: 45px;
+            font-weight: 400;
+        }
+
+        /* Kindly allow me introduce myself */
+        .intro-section p {
+            width: 378px;
+            height: 67px;
+            position: absolute;
+            left: 21px;
+            top: 114px;
+        }
+
+        .intro-section p .normal {
+            color: black;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .intro-section p .highlight {
+            color: #FF2F2F;
+            font-size: 24px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* Connect Section */
+        .connect-section {
+            width: 589px;
+            height: 311px;
+            position: absolute;
+            left: 82px;
+            top: 728px;
+            background: #EEEEEE;
+        }
+
+        .connect-section h2 {
+            width: 276px;
+            height: 59px;
+            position: absolute;
+            left: 33px;
+            top: 34px;
+            font-size: 45px;
+            font-weight: 400;
+        }
+
+        /* Works Section */
+        .works-section {
+            width: 951px;
+            height: 822px;
+            position: absolute;
+            left: 707px;
+            top: 217px;
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%), #EEEEEE;
+        }
+
+        .works-section h2 {
+            width: 174px;
+            height: 59px;
+            position: absolute;
+            right: 26px;
+            top: 16px;
+            text-align: right;
+            font-size: 45px;
+            font-weight: 400;
+        }
+
+        /* Pagination Dots - Exact Positions */
+        .pagination-dots {
+            position: absolute;
+            bottom: 58px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+        }
+
+        .dot {
+            width: 27px;
+            height: 26px;
+            background: #B3B3B3;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* Individual Dot Positions */
+        .dot:nth-child(1) {
+            position: absolute;
+            left: -58px;
+        }
+
+        .dot:nth-child(2) {
+            position: absolute;
+            left: -19px;
+        }
+
+        .dot:nth-child(3) {
+            position: absolute;
+            left: 20px;
+        }
+
+        .dot:nth-child(4) {
+            position: absolute;
+            left: 59px;
+        }
+
+        .dot.active {
+            background: black;
+        }
+
+        /* Carousel */
+        .carousel {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            text-align: center;
+        }
+
+        .carousel-item {
+            display: none;
+        }
+
+        .carousel-item.active {
+            display: block;
+        }
+
+        .carousel-item h3 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .carousel-item p {
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            position: absolute;
+            top: 120px;
+            left: 33px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* Overlays */
+        .overlay {
+            position: fixed;
+            background: white;
+            border: 2px solid black;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        #introduce-overlay {
+            width: 500px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .overlay-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Works Page Styles */
+        .works-page {
+            display: none;
+        }
+
+        .works-page.active {
+            display: block;
+        }
+
+        .works-layout {
+            width: 1728px;
+            height: 1117px;
+            position: relative;
+            background: white;
+            overflow: hidden;
+        }
+
+        .works-layout h1 {
+            position: absolute;
+            left: 82px;
+            top: 277px;
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        /* Categories */
+        .categories {
+            position: absolute;
+            left: 81px;
+            top: 343px;
+        }
+
+        .category {
+            width: 322px;
+            height: 120px;
+            font-size: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .category[data-category="architecture"] {
+            position: absolute;
+            top: 0;
+        }
+
+        .category[data-category="design"] {
+            position: absolute;
+            top: 119px;
+        }
+
+        .category[data-category="freehand"] {
+            position: absolute;
+            top: 239px;
+        }
+
+        .category:hover,
+        .category.active {
+            color: #FF2F2F;
+        }
+
+        /* Category and Project Overlays */
+        .category-overlay,
+        .project-overlay {
+            position: absolute;
+            background: white;
+            border: 2px solid black;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            display: none;
+        }
+
+        .category-overlay.active,
+        .project-overlay.active {
+            display: block;
+        }
+
+        #architecture-overlay {
+            left: 430px;
+            top: 343px;
+            min-width: 500px;
+        }
+
+        #design-overlay {
+            left: 430px;
+            top: 462px;
+            min-width: 400px;
+        }
+
+        #freehand-overlay {
+            left: 430px;
+            top: 582px;
+            min-width: 600px;
+        }
+
+        .subcategories {
+            display: flex;
+            gap: 60px;
+        }
+
+        .subcategory {
+            font-size: 26px;
+            cursor: pointer;
+            padding: 10px 0;
+            transition: all 0.3s;
+        }
+
+        .subcategory:hover {
+            color: #FF2F2F;
+            font-weight: 700;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .project-item {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .project-item img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border: 1px solid #EEEEEE;
+            margin-bottom: 10px;
+            background: #f0f0f0;
+        }
+
+        .project-item p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Home Page -->
+    <div class="container home-page active" id="home-page">
+        <!-- Browser Header -->
+        <div class="browser-header"></div>
+        
+        <!-- Logo -->
+        <div class="logo">LOGO</div>
+        
+        <!-- Navigation -->
+        <nav>
+            <a href="#" class="nav-link about active" data-page="home">About</a>
+            <a href="#" class="nav-link works" data-page="works">Works</a>
+            <a href="#connect" class="nav-link connect">Connect</a>
+        </nav>
+        
+        <!-- Intro Section -->
+        <section class="intro-section">
+            <h1>Prashanto Roy</h1>
+            <p>
+                <span class="normal">Kindly allow me </span><span class="highlight" data-overlay="introduce">introduce</span><span class="normal"> myself.</span>
+            </p>
+        </section>
+        
+        <!-- Connect Section -->
+        <section class="connect-section" id="connect">
+            <h2>Connect</h2>
+            <div class="contact-info">
+                <p>Email: prashanto@example.com</p>
+                <p>LinkedIn: Prashanto Roy</p>
+                <p>Portfolio: Download PDF</p>
+            </div>
+        </section>
+        
+        <!-- Works Section -->
+        <section class="works-section">
+            <h2>Works</h2>
+            <div class="carousel">
+                <div class="carousel-item active">
+                    <h3>Architecture</h3>
+                    <p>Sustainable design solutions</p>
+                </div>
+                <div class="carousel-item">
+                    <h3>Design</h3>
+                    <p>Creative visual explorations</p>
+                </div>
+                <div class="carousel-item">
+                    <h3>Freehand</h3>
+                    <p>Artistic sketches and drawings</p>
+                </div>
+            </div>
+            <div class="pagination-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+    </div>
+
+    <!-- Works Page -->
+    <div class="container works-page" id="works-page">
+        <!-- Browser Header -->
+        <div class="browser-header"></div>
+        
+        <!-- Logo -->
+        <div class="logo">LOGO</div>
+        
+        <!-- Navigation -->
+        <nav>
+            <a href="#" class="nav-link about" data-page="home">About</a>
+            <a href="#" class="nav-link works active" data-page="works">Works</a>
+            <a href="#connect" class="nav-link connect" data-page="home">Connect</a>
+        </nav>
+
+        <!-- Works Content -->
+        <main class="works-layout">
+            <h1>WORKS</h1>
+
+            <!-- Categories - Left Sidebar -->
+            <div class="categories">
+                <div class="category" data-category="architecture">Architecture</div>
+                <div class="category" data-category="design">Design</div>
+                <div class="category" data-category="freehand">Freehand</div>
+            </div>
+        </main>
+
+        <!-- OVERLAYS - Outside of main content -->
+        
+        <!-- Architecture Subcategories Overlay -->
+        <div class="category-overlay" id="architecture-overlay">
+            <div class="subcategories">
+                <div class="subcategory" data-subcategory="academic">Academic</div>
+                <div class="subcategory" data-subcategory="professional">Professional</div>
+                <div class="subcategory" data-subcategory="other">Other Projects</div>
+            </div>
+        </div>
+
+        <!-- Design Subcategories Overlay -->
+        <div class="category-overlay" id="design-overlay">
+            <div class="subcategories">
+                <div class="subcategory" data-subcategory="graphic">Graphic</div>
+                <div class="subcategory" data-subcategory="motion">Motion</div>
+                <div class="subcategory" data-subcategory="product">Product</div>
+            </div>
+        </div>
+
+        <!-- Freehand Projects Overlay (no subcategories) -->
+        <div class="category-overlay" id="freehand-overlay">
+            <div class="project-grid">
+                <div class="project-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect width='200' height='150' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Sketches">
+                    <p>Urban Sketches</p>
+                </div>
+                <div class="project-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect width='200' height='150' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Paintings">
+                    <p>Paintings</p>
+                </div>
+                <div class="project-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect width='200' height='150' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Drawings">
+                    <p>Drawings</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Academic Projects Overlay -->
+        <div class="project-overlay" id="academic-overlay">
+            <div class="project-grid">
+                <div class="project-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect width='200' height='150' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Sarojini Nagar">
+                    <p>Sarojini Nagar Urban Design</p>
+                </div>
+                <div class="project-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect width='200' height='150' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Thesis">
+                    <p>Thesis</p>
+                </div>
+                <div class="project-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect width='200' height='150' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Fed BIM">
+                    <p>Federated BIM</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Projects Overlay -->
+        <div class="project-overlay" id="professional-overlay">
+            <div class="project-grid">
+                <div class="project-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect width='200' height='150' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="DDA">
+                    <p>Delhi Dev. Authority</p>
+                </div>
+                <div class="project-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect width='200' height='150' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Formnorm">
+                    <p>Formnorm D & B</p>
+                </div>
+                <div class="project-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect width='200' height='150' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Freelance">
+                    <p>Freelance</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other Projects Overlay -->
+        <div class="project-overlay" id="other-overlay">
+            <div class="project-grid">
+                <div class="project-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect width='200' height='150' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="CR Park">
+                    <p>CR Park Market</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Design Subcategory Overlays -->
+        <div class="project-overlay" id="graphic-overlay">
+            <div class="project-grid">
+                <div class="project-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect width='200' height='150' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Branding">
+                    <p>Brand Identity</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-overlay" id="motion-overlay">
+            <div class="project-grid">
+                <div class="project-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect width='200' height='150' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Motion">
+                    <p>Motion Graphics</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-overlay" id="product-overlay">
+            <div class="project-grid">
+                <div class="project-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect width='200' height='150' fill='%23f0f0f0'/%3E%3C/svg%3E" alt="Product">
+                    <p>Furniture Design</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Introduce Overlay -->
+    <div id="introduce-overlay" class="overlay">
+        <button class="overlay-close">&times;</button>
+        <h3>About Prashanto Roy</h3>
+        <p>Urban Designer and Architect with expertise in sustainable development, specializing in large-scale redevelopment projects and community-centered design solutions.</p>
+        <h4>Education</h4>
+        <ul>
+            <li>Master of Urban Design - School of Planning and Architecture, Delhi</li>
+            <li>Bachelor of Architecture</li>
+        </ul>
+        <h4>Focus Areas</h4>
+        <ul>
+            <li>Sustainable Urban Development</li>
+            <li>Community-Centered Design</li>
+            <li>Public Space Revitalization</li>
+        </ul>
+    </div>
+
+    <script>
+        // Page navigation
+        const homePage = document.getElementById('home-page');
+        const worksPage = document.getElementById('works-page');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.dataset.page) {
+                    e.preventDefault();
+                    
+                    // Update active states
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    
+                    if (this.dataset.page === 'home') {
+                        homePage.classList.add('active');
+                        worksPage.classList.remove('active');
+                        document.querySelector('.home-page .nav-link.about').classList.add('active');
+                    } else if (this.dataset.page === 'works') {
+                        homePage.classList.remove('active');
+                        worksPage.classList.add('active');
+                        document.querySelector('.works-page .nav-link.works').classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const dots = document.querySelectorAll('.dot');
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        // Auto advance every 5 seconds
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 5000);
+
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+
+        // Introduce overlay
+        const highlight = document.querySelector('.highlight');
+        const overlay = document.getElementById('introduce-overlay');
+        const closeBtn = document.querySelector('.overlay-close');
+        
+        if (highlight) {
+            highlight.addEventListener('click', () => {
+                overlay.classList.add('active');
+            });
+        }
+        
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                overlay.classList.remove('active');
+            });
+        }
+
+        // Works page functionality
+        const categories = document.querySelectorAll('.category');
+        const categoryOverlays = document.querySelectorAll('.category-overlay');
+        const projectOverlays = document.querySelectorAll('.project-overlay');
+        const subcategories = document.querySelectorAll('.subcategory');
+
+        // Category click handlers
+        categories.forEach(category => {
+            category.addEventListener('click', function() {
+                const categoryName = this.dataset.category;
+                
+                // Close all overlays
+                categoryOverlays.forEach(overlay => overlay.classList.remove('active'));
+                projectOverlays.forEach(overlay => overlay.classList.remove('active'));
+                
+                // Open corresponding overlay
+                const targetOverlay = document.getElementById(`${categoryName}-overlay`);
+                if (targetOverlay) {
+                    targetOverlay.classList.add('active');
+                }
+                
+                // Update active state
+                categories.forEach(cat => cat.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Subcategory click handlers
+        subcategories.forEach(subcategory => {
+            subcategory.addEventListener('click', function() {
+                const subcategoryName = this.dataset.subcategory;
+                
+                // Close category overlays and open project overlay
+                categoryOverlays.forEach(overlay => overlay.classList.remove('active'));
+                
+                const targetOverlay = document.getElementById(`${subcategoryName}-overlay`);
+                if (targetOverlay) {
+                    targetOverlay.classList.add('active');
+                }
+            });
+        });
+
+        // Close overlays when clicking outside
+        document.addEventListener('click', function(e) {
+            if (worksPage.classList.contains('active')) {
+                const isCategory = e.target.closest('.category');
+                const isOverlay = e.target.closest('.category-overlay, .project-overlay');
+                
+                if (!isCategory && !isOverlay) {
+                    categoryOverlays.forEach(overlay => overlay.classList.remove('active'));
+                    projectOverlays.forEach(overlay => overlay.classList.remove('active'));
+                    categories.forEach(cat => cat.classList.remove('active'));
+                }
+            }
+        });
+    </script>
+</body>
+</html>
